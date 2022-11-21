@@ -1,0 +1,18 @@
+main {
+    height: calc(100vh - 56px);
+    color: hsl(205, 36%, 31%);
+    form {
+        max-width: 600px;
+        width: 50%;
+    }
+    .btn-login{
+        background-color: hsl(205, 36%, 31%);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color .3s ease-in-out;
+        &:hover{
+            background-color: hsl(205, 36%, 41%);
+            color: #fff;
+        }
+    }
+}
