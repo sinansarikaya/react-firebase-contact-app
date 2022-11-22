@@ -10,6 +10,11 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "../helpers/ToastNotify";
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebase);

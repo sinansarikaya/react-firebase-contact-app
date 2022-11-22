@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import RegisterImg from "../../assets/register.png";
 import "./Form.scss";
 
-const Register = () => {
+const Profile = () => {
   return (
     <main className="d-flex justify-content-center align-items-center">
       <form className="form-signin p-4 bg-light m-auto text-center shadow rounded">
@@ -64,4 +64,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Profile;

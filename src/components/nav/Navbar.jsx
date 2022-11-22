@@ -1,7 +1,13 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContextProvider";
+import { logOut } from "../../utils/authFunctions";
 import "./Navbar.scss";
 
 const Navbar = () => {
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark ">
       <div className="container-fluid">
@@ -26,12 +32,25 @@ const Navbar = () => {
             <NavLink className="nav-link" aria-current="page" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-            <NavLink className="nav-link" to="/register">
-              Register
-            </NavLink>
+            {!currentUser ? (
+              <>
+                <NavLink className="nav-link" to="/login">
+                  Login
+                </NavLink>
+                <NavLink className="nav-link" to="/register">
+                  Register
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink className="nav-link" to="/profile">
+                  Profile
+                </NavLink>
+                <span className="nav-link" onClick={() => logOut(navigate)}>
+                  Logout
+                </span>
+              </>
+            )}
           </div>
         </div>
       </div>
