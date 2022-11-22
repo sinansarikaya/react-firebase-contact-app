@@ -21,7 +21,7 @@ const AppRouter = () => {
   const LoginRouter = () => {
     const { currentUser } = useContext(AuthContext);
 
-    return currentUser ? <Navigate to="/" /> : <Outlet />;
+    return !currentUser && <Outlet />;
   };
 
   return (
