@@ -51,7 +51,6 @@ export const loginWithGoogle = async (navigate) => {
 
   signInWithPopup(auth, provider)
     .then((result) => {
-      console.log(result);
       navigate("/");
       toastSuccessNotify("Logged in successfully!");
     })
@@ -86,7 +85,6 @@ export const userObserver = (setCurrentUser) => {
 
 // Reset Function
 export const passwordReset = (navigate, email) => {
-  console.log(email);
   sendPasswordResetEmail(auth, email)
     .then(() => {
       navigate("/login");
