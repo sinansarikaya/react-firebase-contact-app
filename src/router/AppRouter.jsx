@@ -16,6 +16,7 @@ import PasswordReset from "../pages/form/PasswordReset";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import Profile from "../pages/form/Profile";
+import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
   const LoginRouter = () => {
@@ -31,7 +32,9 @@ const AppRouter = () => {
         <Route path="/" element={<Home />}>
           <Route path="" element={<ContactList />} />
           <Route path="/contact-list" element={<ContactList />} />
-          <Route path="/add-contact" element={<AddContact />} />
+          <Route path="/add-contact" element={<PrivateRouter />}>
+            <Route path="" element={<AddContact />} />
+          </Route>
         </Route>
 
         <Route path="/login" element={<LoginRouter />}>
@@ -45,7 +48,9 @@ const AppRouter = () => {
         <Route path="/password-reset" element={<LoginRouter />}>
           <Route path="" element={<PasswordReset />} />
         </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<PrivateRouter />}>
+          <Route path="" element={<Profile />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
