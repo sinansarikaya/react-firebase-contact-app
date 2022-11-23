@@ -7,7 +7,7 @@ const Profile = () => {
     <main className="d-flex justify-content-center align-items-center">
       <form className="form-signin p-4 bg-light m-auto text-center shadow rounded">
         <img className="mb-4" src={RegisterImg} alt="Register" width={72} />
-        <h1 className="h3 mb-3 fw-normal">Register</h1>
+        <h1 className="h3 mb-3 fw-normal">Profile</h1>
         <div className="form-floating mb-3 ">
           <input
             type="text"

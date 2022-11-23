@@ -13,7 +13,7 @@ const Register = () => {
     e.preventDefault();
     const { name, surname, email, password, confirmPassword } = register;
 
-    if (password == confirmPassword) {
+    if (password === confirmPassword) {
       createUser(name, surname, email, password, navigate);
     } else {
       toastErrorNotify("Passwords do not match");
