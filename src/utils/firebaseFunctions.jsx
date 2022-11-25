@@ -1,6 +1,10 @@
-import { onValue, push, ref, set } from "firebase/database";
+import { onValue, push, ref, remove, set } from "firebase/database";
 import { useEffect, useState } from "react";
-import { toastErrorNotify, toastSuccessNotify } from "../helpers/ToastNotify";
+import {
+  toastErrorNotify,
+  toastSuccessNotify,
+  toastWarnNotify,
+} from "../helpers/ToastNotify";
 import { db } from "./firebase";
 
 // Create a new contact database
@@ -41,4 +45,9 @@ export const useFetch = () => {
     });
   }, []);
   return { isLoading, contactList };
+};
+
+export const deleteContact = (id) => {
+  remove(ref(db, "contacts/" + id));
+  toastWarnNotify("Deleted Successfully");
 };

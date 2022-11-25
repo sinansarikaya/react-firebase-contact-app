@@ -1,0 +1,11 @@
+.avatar {
+    color: rgb(0, 94, 255);
+    border: 2px solid silver;
+}
+.icons {
+    cursor: pointer;
+    transition: color 0.5s ease-in-out;
+    &:hover {
+        color: #33546c;
+    }
+}
