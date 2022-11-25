@@ -6,7 +6,7 @@ const ContactCard = () => {
   return (
     <div className="card d-flex flex-row bg-light">
       <Sidebar />
-      <div className="p-4">
+      <div className="p-4 w-100">
         <Outlet />
       </div>
     </div>
