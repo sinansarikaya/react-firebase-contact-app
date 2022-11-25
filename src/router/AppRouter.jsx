@@ -13,12 +13,14 @@ import Login from "../pages/form/Login";
 import NotFound from "../pages/NotFound";
 import Register from "../pages/form/Register";
 import PasswordReset from "../pages/form/PasswordReset";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import Profile from "../pages/form/Profile";
 import PrivateRouter from "./PrivateRouter";
 
 const AppRouter = () => {
+  const [contacts, setContacts] = useState();
+
   const LoginRouter = () => {
     const { currentUser } = useContext(AuthContext);
 
@@ -31,9 +33,17 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="" element={<ContactList />} />
-          <Route path="/contact-list" element={<ContactList />} />
+          <Route
+            path="/contact-list"
+            element={<ContactList contacts={contacts} />}
+          />
           <Route path="/add-contact" element={<PrivateRouter />}>
-            <Route path="" element={<AddContact />} />
+            <Route
+              path=""
+              element={
+                <AddContact contacts={contacts} setContacts={setContacts} />
+              }
+            />
           </Route>
         </Route>
 
