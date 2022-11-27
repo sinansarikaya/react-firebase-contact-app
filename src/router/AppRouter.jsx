@@ -45,6 +45,14 @@ const AppRouter = () => {
               }
             />
           </Route>
+          <Route path="/add-contact/:id" element={<PrivateRouter />}>
+            <Route
+              path=""
+              element={
+                <AddContact contacts={contacts} setContacts={setContacts} />
+              }
+            />
+          </Route>
         </Route>
 
         <Route path="/login" element={<LoginRouter />}>
