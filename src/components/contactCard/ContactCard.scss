@@ -1,5 +1,8 @@
 .card {
     height: 500px !important;
     width: 600px !important;
-
+    overflow-y: auto;
+}
+.contactList {
+    overflow-y: auto;
 }
