@@ -38,7 +38,7 @@ const AddContact = ({ contacts, setContacts }) => {
         <div className="form-floating mb-3 ">
           <input
             type="text"
-            className="form-control"
+            className="form-control capitalizeLetter"
             id="name"
             value={contacts?.name || ""}
             placeholder="First Name"
@@ -51,7 +51,7 @@ const AddContact = ({ contacts, setContacts }) => {
         <div className="form-floating mb-3 ">
           <input
             type="text"
-            className="form-control"
+            className="form-control capitalizeLetter"
             id="surname"
             value={contacts?.surname || ""}
             placeholder="Last Name"
