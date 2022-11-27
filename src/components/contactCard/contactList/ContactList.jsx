@@ -3,18 +3,14 @@ import { FcBusinessman, FcBusinesswoman } from "react-icons/fc";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 import "./ContactList.scss";
-// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContextProvider";
+import { useContext } from "react";
 
 const ContactList = () => {
   const { isLoading, contactList } = useFetch();
-  // const [isEditActive, setIsEditActive] = useState(false);
+  const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  // const editContact = (id) => {
-  //   console.log(id);
-  //   setIsEditActive(true);
-  // };
 
   return (
     <>
@@ -44,19 +40,21 @@ const ContactList = () => {
                     <strong className="text-gray-dark">
                       {contact.name} {contact.surname}
                     </strong>
-                    <span>
-                      <AiFillEdit
-                        size={20}
-                        className="me-3 icons"
-                        onClick={() => navigate(`/add-contact/${contact.id}`)}
-                      />
+                    {currentUser && (
+                      <span>
+                        <AiFillEdit
+                          size={20}
+                          className="me-3 icons"
+                          onClick={() => navigate(`/add-contact/${contact.id}`)}
+                        />
 
-                      <AiFillDelete
-                        onClick={() => deleteContact(contact.id)}
-                        size={20}
-                        className="me-3 icons"
-                      />
-                    </span>
+                        <AiFillDelete
+                          onClick={() => deleteContact(contact.id)}
+                          size={20}
+                          className="me-3 icons"
+                        />
+                      </span>
+                    )}
                   </div>
                   <span className="d-block">{contact.tel}</span>
                 </div>
