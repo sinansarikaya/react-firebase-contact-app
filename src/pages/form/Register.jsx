@@ -9,7 +9,7 @@ const Register = () => {
   const [register, setRegister] = useState({});
   const navigate = useNavigate();
 
-  const handleRegister = (e) => {
+  const handleProfleUpdate = (e) => {
     e.preventDefault();
     const { name, surname, email, password, confirmPassword } = register;
 
@@ -23,7 +23,7 @@ const Register = () => {
   return (
     <main className="d-flex justify-content-center align-items-center">
       <form
-        onSubmit={handleRegister}
+        onSubmit={handleProfleUpdate}
         className="form-signin p-4 bg-light m-auto text-center shadow rounded"
       >
         <img className="mb-4" src={RegisterImg} alt="Register" width={72} />
@@ -31,7 +31,7 @@ const Register = () => {
         <div className="form-floating mb-3 ">
           <input
             type="text"
-            className="form-control"
+            className="form-control capitalizeLetter"
             id="firstName"
             placeholder="Name"
             onChange={(e) => setRegister({ ...register, name: e.target.value })}
@@ -41,7 +41,7 @@ const Register = () => {
         <div className="form-floating mb-3 ">
           <input
             type="text"
-            className="form-control"
+            className="form-control capitalizeLetter"
             id="lastName"
             placeholder="Name"
             onChange={(e) =>
