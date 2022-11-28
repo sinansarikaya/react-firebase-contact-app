@@ -34,6 +34,27 @@ export const createUser = async (name, surname, email, password, navigate) => {
   }
 };
 
+// Profile update
+export const userProfileUpdate = (name, surname, email, password, navigate) => {
+  const displayName = `${name} ${surname}`;
+  updateProfile(auth.currentUser, {
+    displayName: displayName,
+    email: email,
+    password: password,
+  })
+    .then(() => {
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify({ email, displayName })
+      );
+      navigate("/");
+      toastSuccessNotify("Registered successfully!");
+    })
+    .catch((error) => {
+      toastErrorNotify(error.message);
+    });
+};
+
 // Login Function
 export const loginWithEmail = async (email, password, navigate) => {
   try {

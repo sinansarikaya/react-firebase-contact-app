@@ -5,7 +5,6 @@ import {
   readOneData,
   updateContact,
 } from "../../../utils/firebaseFunctions";
-import "./AddContact.scss";
 
 const AddContact = ({ contacts, setContacts }) => {
   const { id } = useParams();

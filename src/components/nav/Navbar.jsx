@@ -44,7 +44,7 @@ const Navbar = () => {
             ) : (
               <>
                 <NavLink className="nav-link" to="/profile">
-                  Profile
+                  {currentUser.displayName}
                 </NavLink>
                 <span className="nav-link" onClick={() => logOut(navigate)}>
                   Logout
