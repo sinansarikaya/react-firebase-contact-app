@@ -1,13 +1,22 @@
 nav {
     background-color: #33546c;
-    a{
+    a {
         color: #fff  !important;
+        transition: color 0.5s ease-in-out;
+        &:hover {
+            color: #ffb94b !important;
+        }
+    }
 
-    }
-    a:hover{
-        color: #ffb94b !important;
-    }
     .active {
         color: #ffb94b !important;
+    }
+    .nav-link {
+        cursor: pointer;
+        color: #fff  !important;
+        transition: color 0.5s ease-in-out;
+        &:hover {
+            color: #ffb94b !important;
+        }
     }
 }
