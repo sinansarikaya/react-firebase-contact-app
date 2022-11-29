@@ -31,10 +31,10 @@ const Profile = () => {
   };
 
   return (
-    <main className="d-flex justify-content-center align-items-center">
+    <main className="container d-flex justify-content-center align-items-center">
       <form
         onSubmit={handleSubmit}
-        className="form-signin p-4 bg-light m-auto text-center shadow rounded"
+        className="col-12 form-signin p-4 bg-light m-auto text-center shadow rounded"
       >
         <img className="mb-4" src={RegisterImg} alt="Register" width={72} />
         <h1 className="h3 mb-3 fw-normal">Profile</h1>
