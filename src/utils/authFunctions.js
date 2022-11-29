@@ -35,17 +35,21 @@ export const createUser = async (name, surname, email, password, navigate) => {
 };
 
 // Profile update
-export const userProfileUpdate = (name, surname, email, password, navigate) => {
-  const displayName = `${name} ${surname}`;
+export const userProfileUpdate = (
+  displayName,
+  email,
+  photoURL,
+  setCurrentUser,
+  navigate
+) => {
   updateProfile(auth.currentUser, {
     displayName: displayName,
-    email: email,
-    password: password,
   })
     .then(() => {
+      setCurrentUser({ email, displayName, photoURL });
       localStorage.setItem(
         "currentUser",
-        JSON.stringify({ email, displayName })
+        JSON.stringify({ email, displayName, photoURL })
       );
       navigate("/");
       toastSuccessNotify("Registered successfully!");
@@ -71,7 +75,7 @@ export const loginWithGoogle = async (navigate) => {
   const provider = new GoogleAuthProvider();
 
   signInWithPopup(auth, provider)
-    .then((result) => {
+    .then(() => {
       navigate("/");
       toastSuccessNotify("Logged in successfully!");
     })
