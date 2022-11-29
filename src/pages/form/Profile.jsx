@@ -2,12 +2,11 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RegisterImg from "../../assets/register.png";
 import { AuthContext } from "../../context/AuthContextProvider";
-import { toastErrorNotify } from "../../helpers/ToastNotify";
 import { userProfileUpdate } from "../../utils/authFunctions";
 import "./Form.scss";
 
 const Profile = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   const fullName = currentUser?.displayName?.split(" ");
   const [userUpdate, setUserUpdate] = useState({});
   const navigate = useNavigate();
@@ -18,14 +17,17 @@ const Profile = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { name, surname } = userUpdate;
+    const { email, photoURL } = currentUser;
 
-    const { name, surname, email, password, confirmPassword } = userUpdate;
+    const capitalizeText = (text) => {
+      return (
+        text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase()
+      );
+    };
 
-    if (password === confirmPassword) {
-      userProfileUpdate(name, surname, email, password, navigate);
-    } else {
-      toastErrorNotify("Passwords do not match");
-    }
+    const displayName = `${capitalizeText(name)} ${capitalizeText(surname)}`;
+    userProfileUpdate(displayName, email, photoURL, setCurrentUser, navigate);
   };
 
   return (
@@ -60,43 +62,6 @@ const Profile = () => {
           />
           <label htmlFor="lastName">{fullName && fullName[1]}</label>
         </div>
-        <div className="form-floating mb-3 ">
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="name@example.com"
-            name="email"
-            onChange={(e) => handleChange(e)}
-            required
-          />
-          <label htmlFor="email">{currentUser?.email}</label>
-        </div>
-        <div className="form-floating mb-3 ">
-          <input
-            type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
-            name="password"
-            onChange={(e) => handleChange(e)}
-            required
-          />
-          <label htmlFor="floatingPassword">Password</label>
-        </div>
-        <div className="form-floating mb-3 ">
-          <input
-            type="password"
-            className="form-control"
-            id="confirmPassword"
-            placeholder="Password"
-            name="confirmPassword"
-            onChange={(e) => handleChange(e)}
-            required
-          />
-          <label htmlFor="confirmPassword">Confirm Password</label>
-        </div>
-
         <button className="w-100 mt-3 btn btn-lg btn-login" type="submit">
           Update
         </button>
