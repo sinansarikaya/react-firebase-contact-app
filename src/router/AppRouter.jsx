@@ -17,6 +17,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContextProvider";
 import Profile from "../pages/form/Profile";
 import PrivateRouter from "./PrivateRouter";
+import Footer from "../components/footer/Footer";
 
 const AppRouter = () => {
   const [contacts, setContacts] = useState();
@@ -71,6 +72,7 @@ const AppRouter = () => {
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
