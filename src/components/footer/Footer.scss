@@ -1,0 +1,22 @@
+footer {
+    height: 56px;
+    a {
+        font-weight: bold;
+        text-decoration: underline;
+        transition: color 0.3s ease-in-out;
+        &:hover {
+          color: hsl(209.99999999999991, 11.999999999999984%, 70%) !important;
+        }
+    }
+    .line {
+        height: 100%;
+        width: 0.2rem;
+        background-color: #c7cdd3; ;
+    }
+    .social {
+        font-size: 1.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
