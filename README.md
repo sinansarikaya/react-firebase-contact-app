@@ -50,4 +50,4 @@ $ yarn start
 
 #### [View Demo](https://react-firebase-contact-app-gamma.vercel.app/)
 
-<!-- ![Demo]() -->
+![Demo](./src/assets/demo.jpeg)
