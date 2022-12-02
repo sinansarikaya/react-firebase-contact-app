@@ -1,5 +1,5 @@
 main {
-    height: calc(100vh - 56px - 56px);
+    min-height: calc(100vh - 56px - 304px) ;
     color: hsl(205, 36%, 31%);
     form {
         max-width: 600px;

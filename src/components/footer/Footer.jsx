@@ -5,7 +5,7 @@ import "./Footer.scss";
 
 const Footer = () => {
   return (
-    <footer className="d-flex text-muted flex-wrap text-decoration-none bg-light justify-content-evenly align-items-center shadow">
+    <footer className="d-flex text-muted flex-column text-decoration-none bg-light justify-content-evenly align-items-center shadow">
       <div>
         Made with&nbsp;
         <svg
