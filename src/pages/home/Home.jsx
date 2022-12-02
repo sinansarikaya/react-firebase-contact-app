@@ -6,7 +6,7 @@ import "./Home.scss";
 
 const Home = () => {
   return (
-    <div className="HomeContainer d-flex justify-content-center align-items-center">
+    <div className="HomeContainer d-flex justify-content-center">
       <ContactCard />
     </div>
   );

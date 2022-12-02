@@ -21,7 +21,7 @@ const Register = () => {
   };
 
   return (
-    <main className="container d-flex justify-content-center align-items-center">
+    <main className="container d-flex justify-content-center mb-5 align-items-center">
       <form
         onSubmit={handleProfleUpdate}
         className="col-12 form-signin p-4 bg-light m-auto text-center shadow rounded"

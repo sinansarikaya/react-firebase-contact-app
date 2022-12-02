@@ -18,6 +18,7 @@ import { AuthContext } from "../context/AuthContextProvider";
 import Profile from "../pages/form/Profile";
 import PrivateRouter from "./PrivateRouter";
 import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
 
 const AppRouter = () => {
   const [contacts, setContacts] = useState();
@@ -31,6 +32,7 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="" element={<ContactList />} />
