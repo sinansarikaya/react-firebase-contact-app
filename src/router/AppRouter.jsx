@@ -10,7 +10,7 @@ import ContactList from "../components/contactCard/contactList/ContactList";
 import Navbar from "../components/nav/Navbar";
 import Home from "../pages/home/Home";
 import Login from "../pages/form/Login";
-import NotFound from "../pages/NotFound";
+import NotFound from "../pages/notFound/NotFound";
 import Register from "../pages/form/Register";
 import PasswordReset from "../pages/form/PasswordReset";
 import { useContext, useState } from "react";
@@ -18,7 +18,6 @@ import { AuthContext } from "../context/AuthContextProvider";
 import Profile from "../pages/form/Profile";
 import PrivateRouter from "./PrivateRouter";
 import Footer from "../components/footer/Footer";
-import Header from "../components/header/Header";
 
 const AppRouter = () => {
   const [contacts, setContacts] = useState();
@@ -32,7 +31,6 @@ const AppRouter = () => {
   return (
     <BrowserRouter>
       <Navbar />
-      <Header />
       <Routes>
         <Route path="/" element={<Home />}>
           <Route path="" element={<ContactList />} />
