@@ -6,6 +6,8 @@ import "./Navbar.scss";
 
 const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
+  const items = JSON.parse(localStorage.getItem("currentUser"));
+
   const navigate = useNavigate();
 
   return (
@@ -32,7 +34,16 @@ const Navbar = () => {
             <NavLink className="nav-link" aria-current="page" to="/">
               Home
             </NavLink>
-            {!currentUser ? (
+            {currentUser || items ? (
+              <>
+                <NavLink className="nav-link" to="/profile">
+                  {currentUser?.displayName || items?.displayName}
+                </NavLink>
+                <span className="nav-link" onClick={() => logOut(navigate)}>
+                  Logout
+                </span>
+              </>
+            ) : (
               <>
                 <NavLink className="nav-link" to="/login">
                   Login
@@ -40,15 +51,6 @@ const Navbar = () => {
                 <NavLink className="nav-link" to="/register">
                   Register
                 </NavLink>
-              </>
-            ) : (
-              <>
-                <NavLink className="nav-link" to="/profile">
-                  {currentUser.displayName}
-                </NavLink>
-                <span className="nav-link" onClick={() => logOut(navigate)}>
-                  Logout
-                </span>
               </>
             )}
           </div>
